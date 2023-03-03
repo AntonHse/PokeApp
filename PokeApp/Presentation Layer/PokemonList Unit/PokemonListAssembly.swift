@@ -4,13 +4,15 @@ final class PokemonListAssembly {
 
     static func build() -> UIViewController {
         let networkClient = NetworkClient()
-        let service = PokemonListService(networkClient: networkClient)
+        let service = PokemonService(networkClient: networkClient)
 
-        let presenter = PokemonListPresenter()
-        let interactor = PokemonListInteractor(presenter: presenter, service: service)
-        let viewController = PokemonListVC(interactor: interactor)
+        let router = PokemonListRouter()
+        let presenter = PokemonListPresenter(imageStorage: ImageCacheStorage.shared)
+        let interactor = PokemonListInteractor(presenter: presenter, service: service, storage: PokemonCacheStorage.shared)
+        let viewController = PokemonListVC(interactor: interactor, router: router)
         
         presenter.viewController = viewController
+        router.viewController = viewController
         
         return viewController
     }

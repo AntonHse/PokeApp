@@ -17,6 +17,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         let firstVC = PokemonListAssembly.build()
         let nc = UINavigationController(rootViewController: firstVC)
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: Fonts.kefa(size: 22)
+        ]
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemRed
+
+        nc.navigationBar.standardAppearance = appearance
+        nc.navigationBar.scrollEdgeAppearance = appearance
+
         window?.rootViewController = nc
         window?.makeKeyAndVisible()
     }
@@ -33,22 +45,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
     }
 
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
+    func sceneWillResignActive(_ scene: UIScene) {}
 
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
-    }
+    func sceneWillEnterForeground(_ scene: UIScene) {}
 
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
-    }
-
-
+    func sceneDidEnterBackground(_ scene: UIScene) {}
 }
-

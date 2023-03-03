@@ -35,7 +35,7 @@ extension NetworkClient: NetworkClientProtocol {
             URLSession.shared.dataTask(with: urlRequest) { data, response, error in
                 DispatchQueue.main.async {
                     if let response = response as? HTTPURLResponse {
-                        print(response.statusCode)
+//                        print(response.statusCode)
                     }
                     
                     if let error = error {
@@ -133,7 +133,7 @@ private extension NetworkClient {
     func decodeData<Response>(request: Request<Response>,
                               data: Data,
                               completion: @escaping (Result<Decodable, NetworkErrors>) -> Void) {
-        print(String(decoding: data, as: UTF8.self))
+//        print(String(decoding: data, as: UTF8.self))
         guard let decode = try? JSONDecoder().decode(Response.self, from: data) else {
             completion(.failure(NetworkErrors.decodingError))
             return
