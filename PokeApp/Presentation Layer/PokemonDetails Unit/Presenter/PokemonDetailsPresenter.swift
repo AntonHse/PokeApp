@@ -32,7 +32,6 @@ final class PokemonDetailsPresenter: PokemonDetailsPresenterProtocol {
     }
     
     func presentPokemonDetails(_ pokemon: PokemonDetails) {
-        print(pokemon)
         imageStorage.loadImage(id: String(pokemon.id), urlString: pokemon.sprite.url) { [weak self] image in
             self?.hideLoader()
             self?.viewController?.dispayCells(models: [

@@ -64,7 +64,6 @@ final class PokemonCell: UITableViewCell {
     }
     
     func set(image: UIImage?) {
-//        iconView.image = image
         iconView.set(image: image, animation: true)
     }
 }
@@ -82,6 +81,7 @@ private extension PokemonCell {
         
         numberLabel.font = Fonts.kefa(size: 18)
         numberLabel.textColor = .black
+        numberLabel.adjustsFontSizeToFitWidth = true
 
         backgroundCellView.backgroundColor = .white
         backgroundCellView.layer.borderWidth = 1
@@ -127,7 +127,7 @@ private extension PokemonCell {
             numberLabel.centerYAnchor.constraint(equalTo: backgroundCellView.centerYAnchor),
             numberLabel.leftAnchor.constraint(equalTo: label.rightAnchor, constant: 2),
             numberLabel.rightAnchor.constraint(equalTo: backgroundCellView.rightAnchor, constant: -8),
-            numberLabel.widthAnchor.constraint(equalToConstant: 67)
+            numberLabel.widthAnchor.constraint(equalToConstant: 71)
         ])
     }
     

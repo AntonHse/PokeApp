@@ -42,9 +42,6 @@ final class PokemonService: PokemonServiceProtocol {
             path: "pokemon/\(id)",
             httpMethod: .get
         )
-        if Int(id) ?? 0 >= 899 {
-            print("Bug")
-        }
         
         networkClient.sendRequest(request: request) { result in
             switch result {
