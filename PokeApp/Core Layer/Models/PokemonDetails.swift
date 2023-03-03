@@ -12,7 +12,7 @@ struct PokemonDetails: Decodable {
     let name: String
     let weight: Int
     let height: Int
-    let baseExperience: Int
+    let baseExperience: Int?
     let sprite: Sprite
 //    let abilities: [Ability]
 //    let moves: [Move]
@@ -26,7 +26,7 @@ struct PokemonDetails: Decodable {
         name = try values.decode(String.self, forKey: .name)
         weight = try values.decode(Int.self, forKey: .weight)
         height = try values.decode(Int.self, forKey: .height)
-        baseExperience = try values.decode(Int.self, forKey: .baseExperience)
+        baseExperience = try? values.decode(Int.self, forKey: .baseExperience)
         sprite = try values.decode(Sprite.self, forKey: .sprites)
         types = try values.decode([PokemonType].self, forKey: .types)
     }
